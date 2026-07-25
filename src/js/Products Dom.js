@@ -166,10 +166,22 @@ searchButton.addEventListener("click", searchForItens)
 
 function searchForItens(){
 
-    let whatTheUserTyped = searchArea.value
+    let productSearched     = searchArea.value
 
-    console.log(whatTheUserTyped)
+    let correctProduct      = productSearched.toLowerCase()
+    
+    let showSearchedProduct = []
 
+    for(let i = 0; i < produtos.length; i++){
+
+        let products = produtos[i]
+
+        if(correctProduct == products.nome.toLowerCase()){
+            
+            showSearchedProduct.push(products)
+
+        }
+    }
+
+    renderizeProducts(showSearchedProduct,tagUl)
 }
-
-console.log(searchForItens())
